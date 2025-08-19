@@ -5,49 +5,49 @@ const articles = [
     category: "Design",
     title: "Wanderlust Unleashed: Top Hidden Gems You Must Visit This Year",
     description: "Discover unique, off-the-radar destinations around the world that offer...",
-    author: "John Doe",
+    author: "Harsh Jaiswal",
     date: "July 20, 2024",
-    image: "https://via.placeholder.com/400x250"
+    image: "https://static.toiimg.com/thumb/imgsize-123456,msid-123288668,width-300,resizemode-4/123288668.jpg"
   },
   {
     category: "Sustainability",
     title: "Travel Bucket List: 25 Destinations for Every Adventurer",
     description: "Explore a curated list of must-visit places for every kind of traveler...",
-    author: "John Doe",
+    author: "Harsh Jaiswal",
     date: "July 5, 2024",
-    image: "https://via.placeholder.com/400x250"
+    image: "https://static.toiimg.com/thumb/imgsize-123456,msid-123288668,width-300,resizemode-4/123288668.jpg"
   },
   {
     category: "Cultural Insights",
     title: "How to Travel Like a Local: Insider Tips for Authentic Experiences",
     description: "Learn how to immerse yourself in the culture of each place you visit...",
-    author: "John Doe",
+    author: "Harsh Jaiswal",
     date: "June 30, 2024",
-    image: "https://via.placeholder.com/400x250"
+    image: "https://static.toiimg.com/thumb/imgsize-123456,msid-123288668,width-300,resizemode-4/123288668.jpg"
   },
   {
     category: "Environmental Awareness",
     title: "Escape the Ordinary: Unique Stays Around the World",
     description: "This guide highlights one-of-a-kind accommodations that go beyond...",
-    author: "John Doe",
+    author: "Harsh Jaiswal",
     date: "June 25, 2024",
-    image: "https://via.placeholder.com/400x250"
+    image: "https://static.toiimg.com/thumb/imgsize-123456,msid-123288668,width-300,resizemode-4/123288668.jpg"
   },
   {
     category: "Market Tips",
     title: "Budget to Luxury: Your Guide to Planning the Perfect Vacation",
     description: "Whether you're traveling on a tight budget or ready to splurge...",
-    author: "John Doe",
+    author: "Harsh Jaiswal",
     date: "June 15, 2024",
-    image: "https://via.placeholder.com/400x250"
+    image: "https://static.toiimg.com/thumb/imgsize-123456,msid-123288668,width-300,resizemode-4/123288668.jpg"
   },
   {
     category: "Global Cuisine",
     title: "Beaten-Path Places to Explore Before They Go Mainstream",
     description: "Explore areas that are still under the radar but rapidly gaining popularity...",
-    author: "John Doe",
+    author: "Harsh Jaiswal",
     date: "June 10, 2024",
-    image: "https://via.placeholder.com/400x250"
+    image: "https://static.toiimg.com/thumb/imgsize-123456,msid-123288668,width-300,resizemode-4/123288668.jpg"
   }
 ];
 

@@ -1,51 +1,104 @@
-import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import { useEffect } from "react";
+import gsap from "gsap";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
-const images = [
-  "https://img.freepik.com/free-vector/flat-hand-drawn-coworking-space_52683-54823.jpg?w=740&q=80",
-  "https://img.freepik.com/free-vector/hand-drawn-busy-office-illustration_23-2151051240.jpg?w=740&q=80",
-  "https://img.freepik.com/premium-vector/flat-illsutration-modern-openplan-office-with-professionals-working-desks-stylish-workplace_120150-408.jpg?w=740&q=80",
-  "https://img.freepik.com/premium-vector/flat-illsutration-modern-openplan-office-with-professionals-working-desks-stylish-workplace_120150-379.jpg?w=740&q=80",
-  "https://img.freepik.com/premium-vector/flat-illsutration-modern-openplan-office-with-professionals-working-desks-stylish-workplace_120150-276.jpg?w=740&q=80"
-];
-
-export default function LandingPage() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
+export default function ProcessSection() {
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 3000);
-    return () => clearInterval(interval);
+    AOS.init({ duration: 1200, once: true });
+
+    // Floating background particles
+    gsap.to(".particle", {
+      y: "+=20",
+      repeat: -1,
+      yoyo: true,
+      duration: 3,
+      ease: "sine.inOut",
+      stagger: 0.3,
+    });
   }, []);
 
   return (
-    <section className="pt-24 text-center bg-transparent">
-      {/* Text Content */}
-      <div className="mb-6">
-        <h4 className="text-xs text-purple-500 mb-2">
-          SPECIAL OFFER FIRST CUSTOMER
-        </h4>
-        <h1 className="text-3xl font-bold leading-snug">
-          Technology & education <br /> consulting service
-        </h1>
-        <p className="text-sm text-gray-600 max-w-xl mx-auto">
-          We’re a nonprofit with the mission to provide a free, world-class consultancy.
-        </p>
+    <section className="relative min-h-screen bg-[#0a0a14] flex flex-col justify-center items-center overflow-hidden px-6">
+      {/* Gradient Blobs */}
+      <motion.div
+        className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-purple-600 rounded-full blur-[180px] opacity-30"
+        animate={{ scale: [1, 1.2, 1] }}
+        transition={{ duration: 8, repeat: Infinity, repeatType: "mirror" }}
+      />
+      <motion.div
+        className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-cyan-600 rounded-full blur-[150px] opacity-20"
+        animate={{ scale: [1, 1.3, 1] }}
+        transition={{ duration: 10, repeat: Infinity, repeatType: "mirror" }}
+      />
+
+      {/* Animated Circuit Line */}
+      <svg className="absolute inset-0 w-full h-full opacity-20">
+        <motion.path
+          d="M 0 200 Q 400 100, 800 200 T 1600 200"
+          stroke="url(#grad1)"
+          strokeWidth="1.5"
+          fill="transparent"
+          animate={{ pathLength: [0, 1, 0] }}
+          transition={{ duration: 6, repeat: Infinity }}
+        />
+        <defs>
+          <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#06b6d4" />
+            <stop offset="100%" stopColor="#9333ea" />
+          </linearGradient>
+        </defs>
+      </svg>
+
+      {/* Floating Particles */}
+      {[...Array(20)].map((_, i) => (
+        <div
+          key={i}
+          className="particle absolute w-2 h-2 bg-cyan-400 rounded-full opacity-40"
+          style={{
+            top: `${Math.random() * 90}vh`,
+            left: `${Math.random() * 90}vw`,
+          }}
+        />
+      ))}
+
+      {/* Section Heading */}
+      <div className="relative z-10 text-center mb-20">
+        <motion.h2
+          className="text-6xl font-bold text-white mb-6"
+          initial={{ opacity: 0, y: -30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+        >
+        Where Knowledge Meets Innovation
+        </motion.h2>
+        <motion.p
+          className="text-gray-400 text-xl"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.3, duration: 1 }}
+        >
+          An all-in-one platform designed for students, professionals, and dreamers. Learn from experts, practice with real projects, and unlock global opportunities.
+        </motion.p>
       </div>
 
-      {/* Image with wave clip path */}
-      <div
-        className="inline-block w-full max-w-5xl overflow-hidden"
-        style={{
-          clipPath:
-            "path('M0,50 C150,0 350,100 500,50 C650,0 850,100 1000,50 L1000,500 L0,500 Z')"
-        }}
-      >
-        <img
-          src={images[currentIndex]}
-          alt="Consulting"
-          className="w-full h-auto block"
-        />
+      {/* Futuristic Falling Lines Animation */}
+      <div className="absolute inset-0 flex justify-center items-center z-0">
+        {[...Array(12)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="w-[2px] h-40 bg-gradient-to-b from-cyan-400 to-transparent opacity-70"
+            initial={{ y: -200, opacity: 0 }}
+            animate={{ y: [0, 600], opacity: [0, 1, 0] }}
+            transition={{
+              duration: 3 + Math.random() * 2,
+              repeat: Infinity,
+              delay: Math.random() * 2,
+            }}
+            style={{ marginLeft: `${i * 60 - 300}px` }}
+          />
+        ))}
       </div>
     </section>
   );

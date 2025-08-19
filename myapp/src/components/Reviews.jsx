@@ -1,149 +1,124 @@
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { FaArrowLeft, FaArrowRight, FaPlay } from "react-icons/fa";
+// Testimonials.jsx
+import React, { useEffect, useRef } from "react";
 
 const testimonials = [
   {
-    title: "Mein Business-Traumpartner",
-    description: "Einfach konstante Action - von 1A Design bis hin zu Funnels und Ads.",
-    user: "Liam O'Sullivan",
-    followers: "Mehr als 120K Follower",
-    image: "https://randomuser.me/api/portraits/men/32.jpg",
-    stats: [
-      { label: "120 545 Webinar-Registrierungen" },
-      { label: "0.54€ Cost-per-Registrant" }
-    ]
+    stars: 5,
+    text: "This course completely transformed the way I approach programming. The lessons were clear, well-structured, and the projects really boosted my confidence.",
+    name: "Harsh Jaiswal",
+    role: "Computer Science, MIT",
+    img: "https://media.licdn.com/dms/image/v2/D5603AQGLxkSsXcG_6A/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1723197575718?e=1758153600&v=beta&t=pQU7RLjVWcGOqzkq8hM9GGMzYLlaFF1WuT97STeOsXM",
   },
   {
-    title: "Mein Business-Traumpartner",
-    description: "Einfach konstante Action - von 1A Design bis hin zu Funnels und Ads.",
-    user: "Nora Cardora",
-    followers: "Mehr als 2 Millionen Follower",
-    image: "https://randomuser.me/api/portraits/women/45.jpg",
-    stats: [
-      { label: "120 545 Webinar-Registrierungen" },
-      { label: "0.54€ Cost-per-Registrant" }
-    ]
+    stars: 4,
+    text: "As a design student, I appreciated how practical and hands-on the course was. It bridged the gap between theory and real-world application perfectly.",
+    name: "Harsh Jaiswal",
+    role: "Graphic Design, Rhode Island School of Design",
+    img: "https://media.licdn.com/dms/image/v2/D5603AQGLxkSsXcG_6A/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1723197575718?e=1758153600&v=beta&t=pQU7RLjVWcGOqzkq8hM9GGMzYLlaFF1WuT97STeOsXM",
   },
   {
-    title: "Verkaufsgeschichten",
-    description: "Entdecke die Geheimnisse erfolgreicher Verkaufsstrategien in unserem Podcast!",
-    user: "Lila Montgomery",
-    followers: "Mehr als 980K Follower",
-    image: "https://randomuser.me/api/portraits/women/65.jpg",
-    stats: [
-      { label: "120 545 Webinar-Registrierungen" },
-      { label: "0.54€ Cost-per-Registrant" }
-    ]
-  }
+    stars: 5,
+    text: "I took the Data Science course and loved how it started from basics and built up to advanced projects. The support from instructors was fantastic.",
+    name: "Harsh Jaiswal",
+    role: "Data Science, Stanford University",
+    img: "https://media.licdn.com/dms/image/v2/D5603AQGLxkSsXcG_6A/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1723197575718?e=1758153600&v=beta&t=pQU7RLjVWcGOqzkq8hM9GGMzYLlaFF1WuT97STeOsXM",
+  },
+  {
+    stars: 6,
+    text: "The Web Development Bootcamp was intense but so rewarding. By the end, I built a full-stack app I could showcase to employers.",
+    name: "Harsh Jaiswal",
+    role: "Software Engineering, Carnegie Mellon University",
+    img: "https://media.licdn.com/dms/image/v2/D5603AQGLxkSsXcG_6A/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1723197575718?e=1758153600&v=beta&t=pQU7RLjVWcGOqzkq8hM9GGMzYLlaFF1WuT97STeOsXM",
+  },
+  {
+    stars: 7,
+    text: "The AI & Machine Learning course had an amazing mix of theory and coding challenges. It’s already helping me with my research projects.",
+    name: "Harsh Jaiswal",
+    role: "Artificial Intelligence, University of Cambridge",
+    img: "https://media.licdn.com/dms/image/v2/D5603AQGLxkSsXcG_6A/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1723197575718?e=1758153600&v=beta&t=pQU7RLjVWcGOqzkq8hM9GGMzYLlaFF1WuT97STeOsXM",
+  },
+  {
+    stars: 8,
+    text: "I loved the UX/UI Design course! It made me confident in using industry-standard tools and creating designs that people love.",
+    name: "Harsh Jaiswal",
+    role: "Human-Computer Interaction, University of Toronto",
+    img: "https://media.licdn.com/dms/image/v2/D5603AQGLxkSsXcG_6A/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1723197575718?e=1758153600&v=beta&t=pQU7RLjVWcGOqzkq8hM9GGMzYLlaFF1WuT97STeOsXM",
+  },
 ];
 
-export default function TestimonialSlider() {
-  const [index, setIndex] = useState(0);
+export default function Testimonials() {
+  const scrollRef = useRef(null);
 
-  const nextSlide = () => setIndex((prev) => (prev + 1) % testimonials.length);
-  const prevSlide = () => setIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  useEffect(() => {
+    const scrollInterval = setInterval(() => {
+      if (scrollRef.current) {
+        scrollRef.current.scrollBy({
+          top: 200,
+          behavior: "smooth",
+        });
+        if (
+          scrollRef.current.scrollTop + scrollRef.current.clientHeight >=
+          scrollRef.current.scrollHeight
+        ) {
+          scrollRef.current.scrollTo({ top: 0, behavior: "smooth" });
+        }
+      }
+    }, 3000); // every 3 seconds
+
+    return () => clearInterval(scrollInterval);
+  }, []);
 
   return (
-    <section className="bg-gradient-to-b from-gray-900 to-gray-800 text-white py-16">
-      <div className="max-w-6xl mx-auto px-6 text-center">
-        <h2 className="text-2xl font-bold mb-2">
-          Ergebnisse, die Sie ebenfalls erreichen können...
-        </h2>
-        <p className="text-gray-400 mb-12">
-          Doch überzeugen Sie sich am besten selbst und lassen Sie die Stimmen unserer
-          langjährigen Partner für sich sprechen.
-        </p>
+    <section className="bg-white rounded-xl p-6 md:p-10 shadow-lg max-w-6xl mx-auto grid md:grid-cols-2 gap-6 items-center">
+      {/* Left Side */}
+      <div className="bg-green-100 rounded-xl flex flex-col justify-between p-6 h-full">
+        <div>
+          <h2 className="text-2xl md:text-3xl font-bold leading-snug">
+            Hear From Our <br /> Satisfied Students <br /> Have To Say ❤️
+          </h2>
+        </div>
+        <div className="text-4xl md:text-5xl font-bold mt-6">22.9K+</div>
+      </div>
 
-        <div className="relative flex justify-center items-center">
-          {/* Left Button */}
-          <button
-            onClick={prevSlide}
-            className="absolute left-0 p-3 bg-white/10 hover:bg-white/20 rounded-full"
+      {/* Right Side - Scrolling Testimonials */}
+      <div
+        ref={scrollRef}
+        className="overflow-hidden h-[350px] flex flex-col gap-4 pr-2"
+      >
+        {testimonials.map((t, idx) => (
+          <div
+            key={idx}
+            className={`rounded-xl p-4 shadow-md ${
+              idx % 2 === 0 ? "bg-green-200" : "bg-white"
+            }`}
           >
-            <FaArrowLeft />
-          </button>
-
-          {/* Cards */}
-          <div className="flex items-center gap-6 overflow-hidden">
-            {testimonials.map((t, i) => {
-              const position =
-                (i - index + testimonials.length) % testimonials.length;
-              let scale = position === 0 ? 1 : 0.9;
-              let opacity = position === 0 ? 1 : 0.4;
-              let zIndex = position === 0 ? 10 : 0;
-
-              return (
-                <motion.div
-                  key={i}
-                  className="bg-gray-800 rounded-2xl p-6 w-80 shadow-lg relative"
-                  style={{
-                    scale,
-                    opacity,
-                    zIndex,
-                  }}
-                  animate={{
-                    x: (position - 1) * 320,
-                  }}
-                  transition={{
-                    duration: 0.6,
-                    ease: "easeInOut",
-                  }}
-                >
-                  {/* Play Button for center card */}
-                  {position === 0 && (
-                    <div className="flex justify-center mb-4">
-                      <button className="bg-white/10 hover:bg-white/20 p-3 rounded-full">
-                        <FaPlay />
-                      </button>
-                    </div>
-                  )}
-
-                  <h3 className="font-bold">{t.title}</h3>
-                  <p className="text-gray-400 text-sm mt-1">{t.description}</p>
-
-                  {/* User */}
-                  <div className="flex items-center gap-3 mt-4">
-                    <img
-                      src={t.image}
-                      alt={t.user}
-                      className="w-10 h-10 rounded-full"
-                    />
-                    <div>
-                      <p className="font-medium">{t.user}</p>
-                      <p className="text-xs text-gray-500">{t.followers}</p>
-                    </div>
-                  </div>
-
-                  {/* Stats */}
-                  <div className="flex gap-3 mt-4 flex-wrap">
-                    {t.stats.map((s, idx) => (
-                      <span
-                        key={idx}
-                        className="text-xs bg-white/10 rounded-full px-3 py-1"
-                      >
-                        {s.label}
-                      </span>
-                    ))}
-                  </div>
-                </motion.div>
-              );
-            })}
+            <div className="flex mb-2">
+              {Array.from({ length: t.stars }).map((_, i) => (
+                <span key={i} className="text-yellow-500">★</span>
+              ))}
+            </div>
+            <p className="text-gray-700 text-sm italic mb-3">{t.text}</p>
+            <div className="flex items-center gap-3">
+              <img
+                src={t.img}
+                alt={t.name}
+                className="w-10 h-10 rounded-full object-cover"
+              />
+              <div>
+                <h4 className="text-sm font-bold">{t.name}</h4>
+                <p className="text-xs text-gray-500">{t.role}</p>
+              </div>
+            </div>
           </div>
+        ))}
+      </div>
 
-          {/* Right Button */}
-          <button
-            onClick={nextSlide}
-            className="absolute right-0 p-3 bg-white/10 hover:bg-white/20 rounded-full"
-          >
-            <FaArrowRight />
-          </button>
-        </div>
-
-        {/* Pagination */}
-        <div className="mt-6 text-gray-400 text-sm">
-          {String(index + 1).padStart(2, "0")} of {testimonials.length}
-        </div>
+      {/* Bottom CTA */}
+      <div className="md:col-span-2 bg-green-700 text-white flex justify-between items-center px-6 py-4 rounded-xl">
+        <p className="text-lg font-semibold">Are you The Next One!</p>
+        <button className="bg-white text-green-700 px-4 py-2 rounded-lg shadow hover:bg-gray-100">
+          Join Now
+        </button>
       </div>
     </section>
   );
