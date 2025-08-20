@@ -1,4 +1,5 @@
 import React from "react";
+import 'aos/dist/aos.css';
 import Navbar from "./components/Navbar";
 import LandingPage from "./components/Landingpage";
 import Cards from "./components/Cards";

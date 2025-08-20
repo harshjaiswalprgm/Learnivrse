@@ -1,8 +1,10 @@
+
 import { motion } from "framer-motion";
 import { useEffect } from "react";
 import gsap from "gsap";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { ArrowUpRight } from "lucide-react";
 
 export default function ProcessSection() {
   useEffect(() => {
@@ -64,14 +66,14 @@ export default function ProcessSection() {
       ))}
 
       {/* Section Heading */}
-      <div className="relative z-10 text-center mb-20">
+      <div className="relative z-10 text-center mb-20 max-w-3xl mx-auto">
         <motion.h2
           className="text-6xl font-bold text-white mb-6"
           initial={{ opacity: 0, y: -30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
-        Where Knowledge Meets Innovation
+          "Shaping the Future with Knowledge & Innovation"
         </motion.h2>
         <motion.p
           className="text-gray-400 text-xl"
@@ -79,8 +81,29 @@ export default function ProcessSection() {
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.3, duration: 1 }}
         >
-          An all-in-one platform designed for students, professionals, and dreamers. Learn from experts, practice with real projects, and unlock global opportunities.
+          An all-in-one platform designed for students, professionals, and
+          dreamers. Learn from experts, practice with real projects, and unlock
+          global opportunities.
         </motion.p>
+
+        {/* Buttons */}
+        <motion.div
+          className="flex justify-center gap-4 mt-10"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6, duration: 1 }}
+        >
+          {/* Black Button */}
+          <button className="flex items-center gap-2 bg-black text-white px-6 py-3 rounded-full font-medium transition-all duration-300 hover:scale-105 hover:bg-gray-900">
+            Open App
+            <ArrowUpRight className="w-4 h-4" />
+          </button>
+
+          {/* White Button */}
+          <button className="bg-white text-black px-6 py-3 rounded-full font-medium transition-all duration-300 hover:scale-105 hover:bg-gray-100 shadow">
+            Discover More
+          </button>
+        </motion.div>
       </div>
 
       {/* Futuristic Falling Lines Animation */}
@@ -100,6 +123,7 @@ export default function ProcessSection() {
           />
         ))}
       </div>
+
     </section>
   );
 }
