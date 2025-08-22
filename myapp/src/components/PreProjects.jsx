@@ -13,22 +13,22 @@ export default function ShowcaseSection() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {[
           {
-            img: "https://images.unsplash.com/photo-1615454782617-e69bbd4f2969?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dGVjaCUyMHByb2plY3RzfGVufDB8fDB8fHww",
+            img: "https://images.pexels.com/photos/247819/pexels-photo-247819.jpeg?auto=compress&cs=tinysrgb&w=800",
             title: "Brand Identity & Positioning",
             desc: "Define who you are and make your mark."
           },
           {
-            img: "https://images.unsplash.com/photo-1615454782617-e69bbd4f2969?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dGVjaCUyMHByb2plY3RzfGVufDB8fDB8fHww",
+            img: "https://images.pexels.com/photos/6517084/pexels-photo-6517084.jpeg?auto=compress&cs=tinysrgb&w=800",
             title: "Product Discovery & Market Research",
             desc: "Understand your audience & market."
           },
           {
-            img: "https://images.unsplash.com/photo-1615454782617-e69bbd4f2969?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dGVjaCUyMHByb2plY3RzfGVufDB8fDB8fHww",
+            img: "https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=800",
             title: "UI/UX & Digital Experiences",
             desc: "Websites, dApps, and gaming interfaces."
           },
           {
-            img: "https://images.unsplash.com/photo-1615454782617-e69bbd4f2969?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dGVjaCUyMHByb2plY3RzfGVufDB8fDB8fHww",
+            img: "https://images.pexels.com/photos/2292837/pexels-photo-2292837.jpeg?auto=compress&cs=tinysrgb&w=800",
             title: "Creative Development",
             desc: "Frontend, smart contracts, and integrations."
           }
@@ -54,8 +54,8 @@ export default function ShowcaseSection() {
       </div>
 
       {/* Middle Three Panels */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-4">
-        {["https://images.unsplash.com/photo-1615454782617-e69bbd4f2969?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dGVjaCUyMHByb2plY3RzfGVufDB8fDB8fHww", "https://images.unsplash.com/photo-1615454782617-e69bbd4f2969?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dGVjaCUyMHByb2plY3RzfGVufDB8fDB8fHww", "https://images.unsplash.com/photo-1615454782617-e69bbd4f2969?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dGVjaCUyMHByb2plY3RzfGVufDB8fDB8fHww"].map(
+      <div className="grid grid-cols-1 sm:grid-cols-3  gap-4 mt-4">
+        {["https://images.pexels.com/photos/5475755/pexels-photo-5475755.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", "https://images.pexels.com/photos/8728382/pexels-photo-8728382.jpeg?auto=compress&cs=tinysrgb&w=800", "https://images.pexels.com/photos/8720619/pexels-photo-8720619.jpeg?auto=compress&cs=tinysrgb&w=800"].map(
           (img, idx) => (
             <div
               key={idx}
@@ -74,17 +74,17 @@ export default function ShowcaseSection() {
 
       {/* Keyboard Section */}
       <div
-        data-aos="fade-up"
-        className="relative border border-black rounded-xl bg-gray-100 p-4 mt-4 overflow-hidden group"
-      >
-        <img
-          src="https://images.unsplash.com/photo-1615454782617-e69bbd4f2969?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dGVjaCUyMHByb2plY3RzfGVufDB8fDB8fHww"
-          alt="Keyboard"
-          className="w-full rounded-xl object-cover"
-        />
-        {/* Shimmer effect */}
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent translate-x-[-100%] animate-shimmer"></div>
-      </div>
+  data-aos="fade-up"
+  className="relative max-w-4xl w-full mx-auto mt-12 rounded-2xl bg-gradient-to-br from-gray-50 to-gray-100 shadow-xl overflow-hidden group"
+>
+  {/* Image */}
+  <img
+    src="https://plus.unsplash.com/premium_vector-1683133603975-60193704cb08?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bGVhcm5pbmd8ZW58MHx8MHx8fDA%3D"
+    alt="Leadership"
+    className="rounded-2xl object-cover w-full h-[300px]" // 👈 height fixed, full width
+  />
+</div>
+
     </section>
   );
 }

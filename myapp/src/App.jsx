@@ -1,5 +1,5 @@
 import React from "react";
-import 'aos/dist/aos.css';
+import "aos/dist/aos.css";
 import Navbar from "./components/Navbar";
 import LandingPage from "./components/Landingpage";
 import Cards from "./components/Cards";
@@ -11,7 +11,8 @@ import Aboutt from "./components/Aboutt";
 import Reviews from "./components/Reviews";
 import PreTestimonials from "./components/PreTestimonials";
 import PreProjects from "./components/PreProjects";
-
+import WebDevCourse from "./components/webdev";
+import Webcarrier from "./components/carrier";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <Navbar />
       <LandingPage />
       <Aboutt />
+      <Webcarrier />
       <Program />
       <PreProjects />
       <Projects />
@@ -27,6 +29,9 @@ function App() {
       <PreTestimonials />
       <Reviews />
       <Footer />
+      <WebDevCourse />
+
+
     </div>
   );
 }

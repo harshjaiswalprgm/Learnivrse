@@ -39,7 +39,7 @@ export default function ReferencesSection() {
     <section className="py-12 px-4 text-center">
       {/* Title */}
       <h2 className="text-2xl md:text-3xl font-semibold mb-8">
-        References of colleagues <br className="hidden sm:block" /> and clients
+        Reviews of students <br className="hidden sm:block" /> and
       </h2>
 
       {/* Two fixed rows */}

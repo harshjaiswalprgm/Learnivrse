@@ -53,14 +53,16 @@ export default function ProcessSection() {
         </defs>
       </svg>
 
+
       {/* Floating Particles */}
       {[...Array(20)].map((_, i) => (
         <div
           key={i}
-          className="particle absolute w-2 h-2 bg-cyan-400 rounded-full opacity-40"
+          className="particle absolute w-3 h-3 bg-cyan-300 rounded-full opacity-40"
           style={{
             top: `${Math.random() * 90}vh`,
             left: `${Math.random() * 90}vw`,
+            right: `${Math.random() * 120}vw`,
           }}
         />
       ))}
