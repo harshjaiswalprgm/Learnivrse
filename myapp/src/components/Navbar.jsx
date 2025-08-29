@@ -1,24 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
+import { FiMenu, FiX } from "react-icons/fi";
 
 export default function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <div className="fixed top-5 left-1/2 -translate-x-1/2 z-[1000]">
-      <nav className="flex items-center justify-between bg-[#111] px-6 py-2 rounded-full shadow-lg gap-6">
+    <div className="fixed top-5 z-[1000] w-full px-4 md:left-1/2 md:-translate-x-1/2 md:max-w-6xl">
+
+      <nav className="flex items-center justify-between bg-[#2b2828]  px-6 py-2 rounded-full shadow-lg">
         {/* Logo */}
-        <div className="flex items-center justify-center">
+        <div className="flex items-center">
           <img
-            src="/logo.png"
+            src="/lightlogo.png"
             alt="Company Logo"
             className="h-10 w-auto object-contain md:h-12 lg:h-14"
           />
         </div>
 
-        {/* Links */}
-        <ul className="flex gap-6 list-none m-0 p-0">
+        {/* Desktop Links */}
+        <ul className="hidden md:flex gap-6 list-none m-0 p-0">
           <li>
             <a
               href="#about"
-              className="text-white text-sm font-medium hover:text-[#ffcc00] transition-colors duration-300"
+              className="text-white text-sm font-medium hover:text-[#8bca1e] transition-colors duration-300"
             >
               About
             </a>
@@ -26,7 +30,7 @@ export default function Navbar() {
           <li>
             <a
               href="#programs"
-              className="text-white text-sm font-medium hover:text-[#ffcc00] transition-colors duration-300"
+              className="text-white text-sm font-medium hover:text-[#8bca1e] transition-colors duration-300"
             >
               Programs
             </a>
@@ -34,7 +38,7 @@ export default function Navbar() {
           <li>
             <a
               href="#projects"
-              className="text-white text-sm font-medium hover:text-[#ffcc00] transition-colors duration-300"
+              className="text-white text-sm font-medium hover:text-[#8bca1e] transition-colors duration-300"
             >
               Projects
             </a>
@@ -42,23 +46,66 @@ export default function Navbar() {
           <li>
             <a
               href="#resources"
-              className="text-white text-sm font-medium hover:text-[#ffcc00] transition-colors duration-300"
+              className="text-white text-sm font-medium hover:text-[#8bca1e] transition-colors duration-300"
             >
               Resources
             </a>
           </li>
         </ul>
 
-        {/* Button */}
-        <a
-          href="https://glowlogics.in"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="bg-white text-black px-4 py-1.5 rounded-full text-sm font-medium hover:bg-[#ffcc00] transition-colors duration-300"
+        {/* Mobile menu toggle */}
+        <button
+          className="md:hidden text-white ml-4"
+          onClick={() => setIsOpen(!isOpen)}
         >
-          glowlogics.in
-        </a>
+          {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
+        </button>
       </nav>
+
+      {/* Mobile dropdown menu */}
+      {isOpen && (
+        <div className="md:hidden mt-2 bg-[#111] rounded-xl shadow-lg py-4 px-6">
+          <ul className="flex flex-col gap-4">
+            <li>
+              <a
+                href="#about"
+                className="text-white text-sm font-medium hover:text-[#8bca1e] transition-colors duration-300"
+                onClick={() => setIsOpen(false)}
+              >
+                About
+              </a>
+            </li>
+            <li>
+              <a
+                href="#programs"
+                className="text-white text-sm font-medium hover:text-[#8bca1e] transition-colors duration-300"
+                onClick={() => setIsOpen(false)}
+              >
+                Programs
+              </a>
+            </li>
+            <li>
+              <a
+                href="#projects"
+                className="text-white text-sm font-medium hover:text-[#8bca1e] transition-colors duration-300"
+                onClick={() => setIsOpen(false)}
+              >
+                Projects
+              </a>
+            </li>
+            <li>
+              <a
+                href="#resources"
+                className="text-white text-sm font-medium hover:text-[#8bca1e] transition-colors duration-300"
+                onClick={() => setIsOpen(false)}
+              >
+                Resources
+              </a>
+            </li>
+          </ul>
+        </div>
+      )}
+
     </div>
   );
 }

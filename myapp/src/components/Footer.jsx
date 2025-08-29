@@ -45,13 +45,13 @@ export default function Footer() {
         <div className="flex space-x-4 text-xl">
           <a href="#"><FaBehance /></a>
           <a href="#"><FaDribbble /></a>
-          <a href="#"><FaLinkedin /></a>
+          <a href="https://www.linkedin.com/company/glowlogics"><FaLinkedin /></a>
         </div>
       </div>
 
       {/* Huge Background Text */}
       <h1 className="absolute bottom-0 left-0 w-full text-[15vw] md:text-[10vw] font-extrabold text-black opacity-20 text-center leading-none">
-        ThLearniverse
+        TheLearniverse
       </h1>
     </footer>
   );
