@@ -7,7 +7,7 @@ export default function WorkshopSection() {
      <div className="bg-green-400 text-white text-center py-12 px-6 rounded-2xl max-w-5xl mx-auto relative z-10">
   <h2 className="text-4xl font-bold mb-3">Start Your Journey</h2>
   <p className="text-lg text-gray-800">
-    Start your journey towards financial freedom and unlock your true potential!
+    Start your journey towards to you Corporate journey to unlock your true potential!
   </p>
 </div>
 
@@ -18,7 +18,7 @@ export default function WorkshopSection() {
           <div>
             <p className="text-indigo-600 font-semibold uppercase">Masterclass</p>
             <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mt-2">
-              Personal Finance Made Simple in 2 Hours
+               Start your journey towards to you Corporate journey to unlock your true potential!
             </h3>
             <p className="text-gray-700 mt-4">
               Learn the science behind personal finance and easily achieve all

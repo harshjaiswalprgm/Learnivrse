@@ -14,6 +14,7 @@ import Workshop from "./components/Workshop";
 import CardOne from "./components/CardOne";
 import Roadmap from "./components/Roadmap";
 import MeetingPage from "./components/Meetingpage";
+import Whyus from "./components/Whyus";
 
 function App() {
   return (
@@ -28,10 +29,12 @@ function App() {
       <PreProjects />
       <Projects />
       <Recource />
+      <Whyus />
       <PreTestimonials />
       <Reviews />
       <Footer />
-      <MeetingPage/>
+      <MeetingPage />
+
     </div>
   );
 }
